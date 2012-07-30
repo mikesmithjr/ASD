@@ -1,4 +1,5 @@
-//Project 3 Gold MIU Term 1206
+//Project 3 Gold 
+//ASD Term 1208
 //Michael Smith Jr.
 //The Diabetic Blood Sugar Log
 

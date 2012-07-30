@@ -1,4 +1,5 @@
-//Project 3 Bronze MIU Term 1206
+//Project 1 Bronze
+//ASD Term 1208
 //Michael Smith Jr.
 //The Diabetic's Log
 
