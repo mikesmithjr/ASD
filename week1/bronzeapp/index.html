@@ -1,0 +1,313 @@
+<!doctype html>
+<!--Project 4 Bronze App-->
+<!--MIU Term 1206-->
+<!--Michael Smith Jr.-->
+<!--The Diabetic's Log-->
+<html>
+	<head>
+		
+		<!-- Character Set Meta -->
+		<meta charset="utf-8">
+
+		<!--Description and Keywords Meta-->
+		<meta name="descrtiption" content="My Diabetic Blood Sugar Log">
+		<meta name="keywords" content="diabetic, blood sugar, html5, Full Sail University">
+
+		<!-- Robot Meta Instructions-->
+		<meta name="robots" content="noindex, nofollow">
+
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+
+		<!--Page Title-->
+		<title>The Diabetic's Log</title>
+
+		<!-- Link CSS -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+		<!--Modernizr JavaScript Template-->
+		<script src="js/libs/modernizr.custom.min.js"></script>
+		
+
+	</head>
+	<body>
+		<!-- Page Content Lives here. -->
+
+		<div data-role="page" id="home">
+			<div data-role="header" data-position="fixed">
+				<h1>The Diabetic's Log</h1>
+			</div>
+			
+			<div data-role="content">
+
+				<div class= "logo">
+					<a href='index.html' title="Home"><img src= "images/miniLogo.jpg"></a>
+
+					
+				</div>	
+
+				<div>
+
+					<p id= "brief"> This application will be a simple log for all the diabetics out there to track their readings.</p>
+
+				</div>
+
+
+				<div class= "feature">
+					<a href='additem.html' data-ajax="false" align= "center" title="Add Log Item"><img src= "images/NewLogItem.jpg"></a>
+				</div>
+				<br>
+				<div>
+					<ul data-role="listview" data-inset="false" data-filter="true" data-theme="b">
+						<!--<li><a href="#doctor">Medical Contact Info</a></li>-->
+						
+							<div data-role="collapsible" data-collapsed="true" data-theme="b">
+										<h3>Recent Test Results</h3>
+										<ul>
+											<li><a href="#recentreadings">Recent Test Results</a></li>
+										</ul>
+							</div>
+							<div data-role="collapsible" data-collapsed="true" data-theme="b">
+										<h3>Useful Links</h3>
+										<ul>
+											<li><a href='http://www.diabetes.org' title="American Diabetes Association">American Diabetes Association</a></li>
+											<li><a href='http://www.diabetesselfmanagement.com' title="Diabetes Self-Management">Diabetes Self-Management</a></li>
+											<li><a href='http://www.ndei.org' title="National Diabetes Education Initiative">National Diabetes Education Initiative</a></li>
+										</ul>
+							</div>
+							<div data-role="collapsible" data-collapsed="true" data-theme="b">
+										<h3>Medical Contact Info</h3>
+										<ul>
+											<li><a href="#doctor">Doctor's Info</a></li>
+											<li><a href="#hospital">Hospital Info</a></li>
+											<li><a href="#emergency">Emergency Contact</a></li>
+										</ul>
+							</div>
+
+					</ul>
+				</div>
+			</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" class="ui-btn-active" data-icon="home">Home</a></li>
+					<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
+					<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">Gold App</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+
+	<div data-role="page" id="doctor" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>Doctor's Contact Info</h1>
+			</div>
+			
+				
+				<div data-role="content">
+				
+				<div class= "logo">
+					<a href='index.html' title="Home"><img src= "images/tinyLogo.jpg"></a>
+				</div>
+					
+						<div data-role="collapsible" data-collapsed="true" data-theme="b">
+							<h3>Doctor's Info</h3>
+							<ul>
+								<li>
+									<h3>Bent Tree Physicians Frisco</h3>
+									<p>3550 Parkwood Blvd # 600 Frisco, Tx 75034</p>
+									<p>(972)377-8800</p>
+									<p>Contact: Sarah A. Gagliano, P.A.-C.</p>
+								</li>
+								
+								<li>
+									<h3>Bent Tree Physicians Dallas</h3>
+									<p>17110 Dallas Parkway Suite #100 Dallas, Texas 75248</p>
+									<p>(972)380-7000 </p>
+									<p>Contact: Alma D. Garza, M.D.</p>
+								</li>
+							</ul>
+						</div>
+				<div data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home" data-icon="home">Home</a></li>
+							<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
+							<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">Gold App</a></li>
+						</ul>
+					</div>		
+				</div>
+			</div>
+		</div>
+	<div data-role="page" id="hospital" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>Hospital Contact Info</h1>
+			</div>
+			
+				
+				<div data-role="content">
+				
+				<div class= "logo">
+					<a href='index.html' title="Home"><img src= "images/tinyLogo.jpg"></a>
+				</div>
+						<div data-role="collapsible" data-collapsed="true" data-theme="b">
+							<h3>Prefered Hospitals</h3>
+							<ul>
+								<li>
+									<h3>Baylor Frisco</h3>
+									<p>5601 Warren Parkway Frisco, TX 75034</p>
+									<p>(214) 407-5000</p>
+								</li>
+								
+								<li>
+									<h3>Centennial Medical Center</h3>
+									<p>12505 Lebanon Road  Frisco, TX 75035</p>
+									<p>(972) 963-3333</p>
+								</li>
+								
+								<li>
+									<h3>Presbyterian Hospital Plano</h3>
+									<p>6200 West Parker Road Plano, TX 75093</p>
+									<p>972-981-8000</p>
+								</li>
+							</ul>
+						</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
+						<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">Gold App</a></li>
+					</ul>
+				</div>		
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="emergency" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>Emergency Contact Info</h1>
+			</div>
+			
+				
+			<div data-role="content">
+				
+				<div class= "logo">
+					<a href='index.html' title="Home"><img src= "images/tinyLogo.jpg"></a>
+				</div>
+
+				<div data-role="collapsible" data-collapsed="true" data-theme="b">
+							<h3>Emergency Family Contact</h3>
+							<ul>
+								<li>
+									<h3>First:</h3>
+									<p>Michael Smith Jr</p>
+									<p>Relationship: Son</p>
+									<p>Cell: (214) 218-4501</p>
+									<p>Work: (214) 705-0330</p>
+								</li>
+								
+								<li>
+									<h3>Second:</h3>
+									<p>Linda Smith</p>
+									<p>Relationship: Wife</p>
+									<p>Cell: (###) ###-####</p>
+								</li>
+								
+								<li>
+									<h3>Third:</h3>
+									<p>Joaquin Robles</p>
+									<p>Relationship: Family Friend</p>
+									<p>Cell: (###) ###-####</p>
+								</li>
+				</div>
+						
+			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
+						<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">Gold App</a></li>
+					</ul>
+				</div>		
+			</div>
+		</div>
+	</div>
+	
+
+	<div data-role="page" id="recentreadings" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>Recent Test Results</h1>
+			</div>
+			
+				
+				<div data-role="content">
+				
+					<div class= "logo">
+						<a href='index.html' title="Home"><img src= "images/tinyLogo.jpg"></a>
+					</div>
+					<br>
+					<div>
+						<ul data-role="listview" data-inset="true" data-filter="true" data-theme="b">
+							<li>
+								<img src="images/Insulin.jpg">
+								<h3>Date: 05/12/2012</h3>
+								<p>Time: 08:00</p>
+								<p>Blood Sugar Reading: 125</p>
+								<p>Treatment: Insulin</p>
+							</li>
+							<li>
+								<img src="images/Pills.jpg">
+								<h3>Date: 05/11/2012</h3>
+								<p>Time: 18:00</p>
+								<p>Blood Sugar Reading: 100</p>
+								<p>Treatment: Insulin</p>
+							</li>
+							<li>
+								<img src="images/Insulin.jpg">
+								<h3>Date: 05/11/2012</h3>
+								<p>Time: 11:00</p>
+								<p>Blood Sugar Reading: 115</p>
+								<p>Treatment: Insulin</p>
+							</li>
+							<li>
+								<img src="images/Pills.jpg">
+								<h3>Date: 05/11/2012</h3>
+								<p>Time: 08:00</p>
+								<p>Blood Sugar Reading: 95</p>
+								<p>Treatment: Insulin</p>
+							</li>
+							<li>
+								<img src="images/Insulin.jpg">
+								<h3>Date: 05/10/2012</h3>
+								<p>Time: 18:00</p>
+								<p>Blood Sugar Reading: 115</p>
+								<p>Treatment: Insulin</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>
+					<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
+					<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">Gold App</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+		<script type="text/javascript" src="js/json.js"></script>
+		<script type="text/javascript" src="js/form.js"></script>
+
+	</body>
+</html>
