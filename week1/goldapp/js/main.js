@@ -90,9 +90,10 @@ $(document).bind('pageinit', function(){
 				"<p>"+obj.treatments[0]+" "+obj.treatments[1]+"</p>"+
 				"<p>"+obj.comments[0]+" "+obj.comments[1]+"</p>");
 			//Creating Edit Link in Item
-			var editLink = $("<a href='#add' id='edit"+key+"'> Edit Log Item</a>");
+			var editLink = $("<a href='#addLogForm' id='edit"+key+"'> Edit Log Item</a>");
 				editLink.on('click', function(){
 					editItem(this.id);
+
 				});
 			//Creating Delete Link in Item
 			var deleteLink = $("<a href='#list' id='delete"+key+"'>Delete Item</a>");
@@ -124,11 +125,12 @@ $(document).bind('pageinit', function(){
 		$("#comments").val(logItem.comments[1]);
 		//Change submit button value to edit button
 		$("#formSubmitButton").val("Edit Log Item");
-		//Save the key value established in this vunction as a property of #addLogItem
+		//Save the key value established in this function as a property of #addLogItem
 		$("#submit").attr("key", key);
 		//Refresh the menu
 		$("#logitemList").listview("refresh");
 		$("logitemList").listview("refresh");
+
 	};
 	
 	var deleteItem = function(){
