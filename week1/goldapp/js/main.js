@@ -170,10 +170,10 @@ $(document).bind('pageinit', function(){
 		};
 	$("#list").listview('refresh');
 	};
-$("#displayLog").bind("click", getData);
-$("#clear").bind("click", clearData);
-$("#submit").bind("click", storeData);
-$("#news").bind("click", getData);
+$("#displayLog").on("click", getData);
+$("#clear").on("click", clearData);
+$("#submit").on("click", storeData);
+$("#news").on("click", getData);
 
 });
 
