@@ -124,7 +124,7 @@ $(document).bind('pageinit', function(){
 		$("#treatments").val(logItem.treatments[1]).selectmenu("refresh");
 		$("#comments").val(logItem.comments[1]);
 		//Change submit button value to edit button
-		$("#formSubmitButton").val("Edit Log Item");
+		$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
 		//Save the key value established in this function as a property of #addLogItem
 		$("#submit").attr("key", key);
 		//Refresh the menu
