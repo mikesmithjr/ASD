@@ -5,7 +5,7 @@ var parseLogItemForm = function(data){
 
 
 
-$(document).bind('pageinit', function(){
+$(document).on('pageinit', function(){
 
 	
 
@@ -17,20 +17,7 @@ $(document).bind('pageinit', function(){
 		}
 	});
 
-	//getElementByID Function
-	var ge = function (x) {
-		var theElement = document.getElementById(x);
-		return theElement;
-	};
-
-	/*var getSelectedRadio = function(){
-		var radios = document.forms[0].sex;
-		for(var i=0; i<radios.length; i++){
-			if(radios[i].checked){
-				sexValue = radios[i].value;
-			}
-		}
-	};*/
+	
 
 	var storeData = function(key){
 		//if there is no key , this is a new item and needs a key
@@ -58,6 +45,7 @@ $(document).bind('pageinit', function(){
 		//Saving data into local storage using Stringify
 		localStorage.setItem(id, JSON.stringify(logItem));
 		alert("Log Saved!");
+		
 	};
 
 		
@@ -77,7 +65,7 @@ $(document).bind('pageinit', function(){
 			var value = localStorage.getItem(key);
 			//Converting string from local storage value back to an object using JSON.parse()
 			var obj = JSON.parse(localStorage.getItem(key));
-			var makeli = $("<li id='listItem"+i+"'></li>");
+			
 			//create log item list
 			var optSubText = $( "<img src='images/"+obj.treatments[1]+".jpg'/>"+
 				"<h3>"+obj.date[1]+"</h3>"+
@@ -105,7 +93,7 @@ $(document).bind('pageinit', function(){
 			//Adding edit and delete links to the list
 			makeli.append(editLink, deleteLink).appendTo("#logitemList");
 			};
-		$("ul").listview('refresh');			
+					
 	};
 
 	//edit single item
@@ -127,9 +115,9 @@ $(document).bind('pageinit', function(){
 		$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
 		//Save the key value established in this function as a property of #addLogItem
 		$("#submit").attr("key", key);
-		//Refresh the menu
-		$("#logitemList").listview("refresh");
-		$("logitemList").listview("refresh");
+		
+		
+		
 
 	};
 	
@@ -139,10 +127,11 @@ $(document).bind('pageinit', function(){
 		if(ask){
 			localStorage.removeItem(key);
 			alert("Log Entry was deleted.");
-			getData();
+			
 		}else{
 			alert("Log entry was Not deleted.");
 		};
+		
 	};
 
 	//Auto Populate Default data to local storage
@@ -165,17 +154,15 @@ $(document).bind('pageinit', function(){
 				localStorage.clear();
 				alert("All log items are deleted!");
 				$("#logitemList").empty();
-				return false;
 			}else{
 				alert("Log items not deleted.");
 			};
 		};
-	$("#list").listview('refresh');
 	};
-$("#displayLog").on("click", getData);
+$("#displayLog, #news").on("click", getData);
 $("#clear").on("click", clearData);
 $("#submit").on("click", storeData);
-$("#news").on("click", getData);
+
 
 });
 
