@@ -246,6 +246,18 @@ var json = {
 		"comments":	["Comments:", "Feeling Awesome!!"]
 	}
 	
+	"logItem21": {
+		"fname": ["First Name:", "Mike"],
+		"lname": ["Last Name:", "Smith"],
+		"date": ["Today's Date:", "05/29/2012"],
+		"currentTime": ["Current Time:", "18:00"],
+		"bsreading": ["Blood Sugar Reading:", "100"],
+		"sex": ["Male or Female:", "Male"],
+		"condition": ["Condition:", "10"],
+		"treatments": ["Current Treatment:", "Pills"],
+		"comments":	["Comments:", "Feeling Awesome!!"]
+	}
+	
 
 
 
