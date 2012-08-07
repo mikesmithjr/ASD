@@ -1,90 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Format Example
-	<items>
-    <item>
-        <title>Undead Monkey</title>
-        <species>Capuchin</species>
-        <name>Jack</name>
-        <price currency="USD">19.95</price>
-    </item>
-</items>-->
+
 <items>
 	<item>
 
-		<fname>Mike</fname>
-		<lname>Smith</lname>
-		<date>"date": ["Today's Date:", "05/17/2012"],</date>
-		<currentTime>"currentTime": ["Current Time:", "16:00"],</currentTime>
-		<bsreading>"bsreading": ["Blood Sugar Reading:", "145"],</bsreading>
-		<sex>"sex": ["Male or Female:", "Male"],</sex>
-		<condition>"condition": ["Condition:", "5"],</condition>
-		<treatments>"treatments": ["Current Treatment:", "Pills"],</treatments>
-		<comments>"comments":	["Comments:", "Feeling OK."]</comments>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/17/2012</date>
+		<currentTime>16:00</currentTime>
+		<bsreading>145</bsreading>
+		<sex>Male</sex>
+		<condition>5</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling OK.</comments>
 	</item>
 	<item>
-		<fname>"fname": ["First Name:", "Mike"],</fname>
-		<lname>"lname": ["Last Name:", "Smith"],</lname>
-		<date>"date": ["Today's Date:", "05/18/2012"],</date>
-		<currentTime>"currentTime": ["Current Time:", "19:00"],</currentTime>
-		<bsreading>"bsreading": ["Blood Sugar Reading:", "115"],</bsreading>
-		<sex>"sex": ["Male or Female:", "Male"],</sex>
-		<condition>"condition": ["Condition:", "8"],</condition>
-		<treatments>"treatments": ["Current Treatment:", "Insulin"],</treatments>
-		<comments>"comments":	["Comments:", "Feeling Great!!"]</comments>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/18/2012</date>
+		<currentTime>19:00</currentTime>
+		<bsreading>115</bsreading>
+		<sex>Male</sex>
+		<condition>8</condition>
+		<treatments>Insulin</treatments>
+		<comments>Feeling Great!!</comments>
 	</item>
 	<item>
-		<fname>: ["First Name:", "Mike"],</fname>
-		<lname>: ["Last Name:", "Smith"],</lname>
-		<date>: ["Today's Date:", "05/19/2012"],</date>
-		<currentTime>: ["Current Time:", "18:00"],</currentTime>
-		<bsreading>: ["Blood Sugar Reading:", "125"],</bsreading>
-		<sex>: ["Male or Female:", "Male"],
-		<condition>: ["Condition:", "10"],
-		<treatments>: ["Current Treatment:", "Pills"],
-		<comments>:	["Comments:", "Feeling Awesome!!"]
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/19/2012</date>
+		<currentTime>18:00</currentTime>
+		<bsreading>125</bsreading>
+		<sex>Male</sex>
+		<condition>10</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling Awesome!!</comments>
 	</item>
 	<item>
-		<fname>: ["First Name:", "Mike"],</fname>
-		<lname>: ["Last Name:", "Smith"],</lname>
-		<date>: ["Today's Date:", "05/20/2012"],</date>
-		<currentTime>: ["Current Time:", "08:00"],</currentTime>
-		<bsreading>: ["Blood Sugar Reading:", "125"],</bsreading>
-		<sex>: ["Male or Female:", "Male"],
-		<condition>: ["Condition:", "7"],
-		<treatments>: ["Current Treatment:", "Pills"],
-		<comments>:	["Comments:", "Feeling Great Today!!"]
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/20/2012</date>
+		<currentTime>08:00</currentTime>
+		<bsreading>125</bsreading>
+		<sex>Male</sex>
+		<condition>7</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling Great Today!!</comments>
 	</item>
 	<item>
-		<fname>: ["First Name:", "Mike"],</fname>
-		<lname>: ["Last Name:", "Smith"],</lname>
-		<date>: ["Today's Date:", "05/21/2012"],</date>
-		<currentTime>: ["Current Time:", "12:00"],</currentTime>
-		<bsreading>: ["Blood Sugar Reading:", "55"],</bsreading>
-		<sex>: ["Male or Female:", "Male"],
-		<condition>: ["Condition:", "4"],
-		<treatments>: ["Current Treatment:", "Insulin"],
-		<comments>:	["Comments:", "Not feeling well."]
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/21/2012</date>
+		<currentTime>12:00</currentTime>
+		<bsreading>55</bsreading>
+		<sex>Male</sex>
+		<condition>4</condition>
+		<treatments>Insulin</treatments>
+		<comments>Not feeling well.</comments>
 	</item>
 	<item>
-		<fname>: ["First Name:", "Mike"],</fname>
-		<lname>: ["Last Name:", "Smith"],</lname>
-		<date>: ["Today's Date:", "05/22/2012"],</date>
-		<currentTime>: ["Current Time:", "16:00"],</currentTime>
-		<bsreading>: ["Blood Sugar Reading:", "195"],</bsreading>
-		<sex>: ["Male or Female:", "Male"],
-		<condition>: ["Condition:", "5"],
-		<treatments>: ["Current Treatment:", "Pills"],
-		<comments>:	["Comments:", "Feeling sick."]
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/22/2012</date>
+		<currentTime>16:00</currentTime>
+		<bsreading>195</bsreading>
+		<sex>Male</sex>
+		<condition>5</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling sick.</comments>
 	</item>
 	<item>
-		<fname>: ["First Name:", "Mike"],</fname>
-		<lname>: ["Last Name:", "Smith"],</lname>
-		<date>: ["Today's Date:", "05/23/2012"],</date>
-		<currentTime>: ["Current Time:", "19:00"],</currentTime>
-		<bsreading>: ["Blood Sugar Reading:", "105"],</bsreading>
-		<sex>: ["Male or Female:", "Male"],
-		<condition>: ["Condition:", "8"],
-		<treatments>: ["Current Treatment:", "Insulin"],
-		<comments>:	["Comments:", "Feeling Great!!"]
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/23/2012</date>
+		<currentTime>19:00</currentTime>
+		<bsreading>105</bsreading>
+		<sex>Male</sex>
+		<condition>8</condition>
+		<treatments>Insulin</treatments>
+		<comments>Feeling Great!!</comments>
 	</item>
