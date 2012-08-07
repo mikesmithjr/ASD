@@ -64,6 +64,7 @@
 				<br>
 				<div>
 					<ul data-role="listview" data-inset="true" data-filter="true" data-theme="b">
+						<li><a href="#dataTypes">3 Data Types for Ajax</a></li>
 						<li><a href="#list" id="news" >Recent Test Results</a></li>
 						<li><a href="#useful">Useful Links</a></li>
 						<li><a href="#contact">Medical Contact Info</a></li>
@@ -81,6 +82,39 @@
 			</div>		
 		</div>
 	</div>
+	<!--Page with buttons for 3 data types-->
+	<div data-role="page" id="dataTypes">
+			<div data-role="header" data-position="fixed">
+				<h1>The Diabetic's Log</h1>
+			</div>
+			
+			<div data-role="content">
+
+				<div class= "logo">
+					<a href='index.html' title="Home"><img src= "images/miniLogo.jpg"></a>
+
+					
+				
+				<div>
+					<ul data-role="listview" data-inset="true" data-theme="b">
+						<li><a href="#">JSON Data</a></li>
+						<li><a href="#">XML Data</a></li>
+						<li><a href="#">WDDX Data</a></li>
+					</ul>
+				</div>
+				
+			</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" class="ui-btn-active" data-icon="home">Home</a></li>
+					<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
+					<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">Gold App</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+</div>
 	<!--Recent Readings News Feed Page-->
 	<div data-role="page" id="recentreadings" data-add-back-btn="true">
 			<div data-role="header" data-position="fixed">
@@ -370,7 +404,7 @@
 					<a href='index.html' title="Home"><img src= "images/tinyLogo.jpg"></a>
 				</div>
 					
-					<form action="" method="post" id="addLogItem">
+					<form action="" id="addLogItem">
 
 						<p>*Required Field</p>
 
