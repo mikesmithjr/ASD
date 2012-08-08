@@ -1,5 +1,5 @@
 
-logItem15:
+logItem0:
     fname: Nancy
     lname: Soto
     date: 05/24/2012
@@ -10,7 +10,7 @@ logItem15:
     treatments: Pills
     comments: Feeling Awesome!!
 
-logItem16:
+logItem1:
     fname: Nancy
     lname: Soto
     date: 05/25/2012
@@ -21,7 +21,7 @@ logItem16:
     treatments: Pills
     comments: Feeling Great Today!!
 
-logItem17:
+logItem2:
     fname: Nancy
     lname: Soto
     date: 05/26/2012
@@ -32,7 +32,7 @@ logItem17:
     treatments: Insulin
     comments: Not feeling well.
 
-logItem18:
+logItem3:
     fname: Nancy
     lname: Soto
     date: 05/27/2012
@@ -43,7 +43,7 @@ logItem18:
     treatments: Pills
     comments: Feeling OK.
 
-logItem19:
+logItem4:
     fname: Nancy
     lname: Soto
     date: 05/28/2012
@@ -54,7 +54,7 @@ logItem19:
     treatments: Insulin
     comments: Feeling Great!!
 
-logItem20:
+logItem5:
     fname: Nancy
     lname: Soto
     date: 05/29/2012
@@ -65,7 +65,7 @@ logItem20:
     treatments: Pills
     comments: Feeling Awesome!!
 
-logItem21:
+logItem6:
     fname: Nancy
     lname: Soto
     date: 05/29/2012

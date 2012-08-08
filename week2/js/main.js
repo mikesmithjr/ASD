@@ -20,6 +20,44 @@ $("#dataTypes").on('pageinit', function(){
 		    dataType : "json",
 		    success  : function(result){
 		        console.log(result);
+		        //Write Data from Local Storage to the browser
+		    		$("#logitemList").empty();
+		    		//Making list items
+		    		for(var i=0, len=result.length; i<len;i++){
+		    			var makeli = $("<li id='listItem"+i+"'></li>");
+		    			var key = result.key(i);
+		    			var value = result.getItem(key);
+		    			
+
+		    			//create log item list
+		    			var optSubText = $( "<img src='images/"+value.treatments[1]+".jpg'/>"+
+		    				"<h3>"+value.date[1]+"</h3>"+
+		    				"<h3>"+value.currentTime[1]+"</h3>"+
+		    				"<p>"+value.fname[0]+" "+value.fname[1]+"</p>"+
+		    				"<p>"+value.lname[0]+" "+value.lname[1]+"</p>"+
+		    				"<p>"+value.bsreading[0]+" "+value.bsreading[1]+"</p>"+
+		    				"<p>"+value.sex[0]+" "+value.sex[1]+"</p>"+
+		    				"<p>"+value.condition[0]+" "+value.condition[1]+"</p>"+
+		    				"<p>"+value.treatments[0]+" "+value.treatments[1]+"</p>"+
+		    				"<p>"+value.comments[0]+" "+value.comments[1]+"</p>");
+		    			//Creating Edit Link in Item
+		    			var editLink = $("<a href='#addLogForm' id='edit"+key+"'> Edit Log Item</a>");
+		    				editLink.on('click', function(){
+		    					editItem(this.id);
+
+		    				});
+		    			//Creating Delete Link in Item
+		    			var deleteLink = $("<a href='#list' id='delete"+key+"'>Delete Item</a>");
+		    				deleteLink.on('click', function(){
+		    					deleteItem(this.id);
+		    				});
+		    			//Make item data the edit link
+		    			editLink.html(optSubText);
+		    			//Adding edit and delete links to the list
+		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
+		    			$("#logitemList").listview("refresh");
+		    			};
+
 		    },
 		    error: function(){
 		    	alert("JSON Ajax Error");
@@ -38,17 +76,17 @@ $("#dataTypes").on('pageinit', function(){
 				dataType: "xml",
 				success: function(xml){
 					console.log("where is my xml");
+					
 					var data = $.parseXML(xml);
 					var items = $(data);
 					$(xml).find("item").each(function(){
 					    var item = $(this);
 					    console.log("Name: ", item.find("fname"));
-					    
-
 					});
+					
 				},
 				error: function(){
-					alert("XML Ajax Error")
+					alert("XML Ajax Error");
 				}
 
 			
@@ -57,7 +95,46 @@ $("#dataTypes").on('pageinit', function(){
 
 	$("#yamlBtn").on("click", function(){
 			YAML.fromURL("data/data.yaml", function(result){
+					console.log("Starting YAML");
 					console.log(result);
+
+					//Write Data from Local Storage to the browser
+		    		$("#logitemList").empty();
+		    		//Making list items
+		    		for(var i=0, len=result.length; i<len;i++){
+		    			var makeli = $("<li id='listItem"+i+"'></li>");
+		    			var key = result.key(i);
+		    			var value = result.getItem(key);
+		    			
+		    			//create log item list
+		    			var optSubText = $( "<img src='images/"+value.treatments[1]+".jpg'/>"+
+		    				"<h3>"+value.date[1]+"</h3>"+
+		    				"<h3>"+value.currentTime[1]+"</h3>"+
+		    				"<p>"+value.fname[0]+" "+value.fname[1]+"</p>"+
+		    				"<p>"+value.lname[0]+" "+value.lname[1]+"</p>"+
+		    				"<p>"+value.bsreading[0]+" "+value.bsreading[1]+"</p>"+
+		    				"<p>"+value.sex[0]+" "+value.sex[1]+"</p>"+
+		    				"<p>"+value.condition[0]+" "+value.condition[1]+"</p>"+
+		    				"<p>"+value.treatments[0]+" "+value.treatments[1]+"</p>"+
+		    				"<p>"+value.comments[0]+" "+value.comments[1]+"</p>");
+		    			//Creating Edit Link in Item
+		    			var editLink = $("<a href='#addLogForm' id='edit"+key+"'> Edit Log Item</a>");
+		    				editLink.on('click', function(){
+		    					editItem(this.id);
+
+		    				});
+		    			//Creating Delete Link in Item
+		    			var deleteLink = $("<a href='#list' id='delete"+key+"'>Delete Item</a>");
+		    				deleteLink.on('click', function(){
+		    					deleteItem(this.id);
+		    				});
+		    			//Make item data the edit link
+		    			editLink.html(optSubText);
+		    			//Adding edit and delete links to the list
+		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
+		    			$("#logitemList").listview("refresh");
+		    			};
+
 			});
 
 	});	

@@ -1,6 +1,6 @@
-var json = {
+{
 
-	"logItem1": {
+	"logItem0": {
 		"fname": ["First Name:", "Mike"],
 		"lname": ["Last Name:", "Smith"],
 		"date": ["Today's Date:", "05/10/2012"],
@@ -12,7 +12,7 @@ var json = {
 		"comments":	["Comments:", "Feeling Great Today!!"]
 	},
 
-	"logItem2": {
+	"logItem1": {
 		"fname": ["First Name:", "Mike"],
 		"lname": ["Last Name:", "Smith"],
 		"date": ["Today's Date:", "05/11/2012"],
@@ -24,7 +24,7 @@ var json = {
 		"comments":	["Comments:", "Not feeling well."]
 	},
 	
-	"logItem3": {
+	"logItem2": {
 		"fname": ["First Name:", "Mike"],
 		"lname": ["Last Name:", "Smith"],
 		"date": ["Today's Date:", "05/12/2012"],
@@ -36,7 +36,7 @@ var json = {
 		"comments":	["Comments:", "Feeling OK."]
 	},
 	
-	"logItem4": {
+	"logItem3": {
 		"fname": ["First Name:", "Mike"],
 		"lname": ["Last Name:", "Smith"],
 		"date": ["Today's Date:", "05/13/2012"],
@@ -48,7 +48,7 @@ var json = {
 		"comments":	["Comments:", "Feeling Great!!"]
 	},
 	
-	"logItem5": {
+	"logItem4": {
 		"fname": ["First Name:", "Mike"],
 		"lname": ["Last Name:", "Smith"],
 		"date": ["Today's Date:", "05/14/2012"],
@@ -60,7 +60,7 @@ var json = {
 		"comments":	["Comments:", "Feeling Awesome!!"]
 	},
 	
-	"logItem6": {
+	"logItem5": {
 		"fname": ["First Name:", "Mike"],
 		"lname": ["Last Name:", "Smith"],
 		"date": ["Today's Date:", "05/15/2012"],
@@ -72,7 +72,7 @@ var json = {
 		"comments":	["Comments:", "Feeling Great Today!!"]
 	},
 
-	"logItem7": {
+	"logItem6": {
 		"fname": ["First Name:", "Mike"],
 		"lname": ["Last Name:", "Smith"],
 		"date": ["Today's Date:", "05/16/2012"],
