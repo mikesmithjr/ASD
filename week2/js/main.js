@@ -38,8 +38,8 @@ $("#dataTypes").on('pageinit', function(){
 				dataType: "xml",
 				success: function(xml){
 					console.log("where is my xml");
-					//var data = $.parseXML(xml);
-					//var items = $(data);
+					var data = $.parseXML(xml);
+					var items = $(data);
 					$(xml).find("item").each(function(){
 					    var item = $(this);
 					    console.log("Name: ", item.find("fname"));
