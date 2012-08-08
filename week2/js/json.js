@@ -244,7 +244,7 @@ var json = {
 		"condition": ["Condition:", "10"],
 		"treatments": ["Current Treatment:", "Pills"],
 		"comments":	["Comments:", "Feeling Awesome!!"]
-	}
+	},
 	
 	"logItem21": {
 		"fname": ["First Name:", "Mike"],
