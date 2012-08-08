@@ -36,8 +36,8 @@ $("#dataTypes").on('pageinit', function(){
 				url: "data/data.xml",
 				type: "GET",
 				dataType: "xml",
-				success: function(result){
-					var data = $.parseXML(result);
+				success: function(xml){
+					var data = $.parseXML(xml);
 					var items = $(data);
 					items.find("item").each(function(){
 					    var item = $(this);
