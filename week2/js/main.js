@@ -37,11 +37,14 @@ $("#dataTypes").on('pageinit', function(){
 				type: "GET",
 				dataType: "xml",
 				success: function(xml){
-					var data = $.parseXML(xml);
-					var items = $(data);
-					items.find("item").each(function(){
+					console.log("where is my xml");
+					//var data = $.parseXML(xml);
+					//var items = $(data);
+					$(xml).find("item").each(function(){
 					    var item = $(this);
 					    console.log("Name: ", item.find("fname"));
+					    
+
 					});
 				},
 				error: function(){
