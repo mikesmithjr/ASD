@@ -11,15 +11,53 @@ $("#home").on('pageinit', function(){
 
 $("#dataTypes").on('pageinit', function(){
 
-		// assume that the XML above is in a string named "xml"
-		var data = $.parseXML(xml);
-		// wrap the XML in a jQuery object to make it easier to work with
-		var items = $( data );
-		items.find("item").each(function(){
-		    var item = $(this);
-		    console.log("Name: ", item.find("name"));
-		});
+	$("#jsonBtn").on("click", function(){
+		console.log("Starting JSON");
 
+		$.ajax({
+		    url      : "data/data.json",
+		    type     : "GET",
+		    dataType : "json",
+		    success  : function(result){
+		        console.log(result);
+		    },
+		    error: function(){
+		    	alert("JSON Ajax Error");
+		    }
+		});
+	});
+
+
+
+	$("#xmlBtn").on("click", function(){
+			console.log("Starting XML");
+
+			$.ajax({
+				url: "data/data.xml",
+				type: "GET",
+				dataType: "xml",
+				success: function(result){
+					var data = $.parseXML(result);
+					var items = $(data);
+					items.find("item").each(function(){
+					    var item = $(this);
+					    console.log("Name: ", item.find("fname"));
+					});
+				},
+				error: function(){
+					alert("XML Ajax Error")
+				}
+
+			
+		});
+	});
+
+	$("#yamlBtn").on("click", function(){
+			YAML.fromURL("data/data.yaml", function(result){
+					console.log(result);
+			});
+
+	});	
 
 });
 
