@@ -20,22 +20,22 @@ $("#dataTypes").on('pageinit', function(){
 		    dataType : "json",
 		    success  : function(json){
 		        console.log(json.logItems);
-		        $.each(json.logItems, function(i, entity){
-		        	console.log(i + " " + entity.fname[0] + " " + entity.fname[1]);
+		        $.each(json.logItems, function(i, logItem){
+		        	console.log(i + " " + logItem.fname[0] + " " + logItem.fname[1]);
 		        	
 		        	
 		            /// do stuff
 				    var makeli = $("<li id='listItem"+i+"'></li>");
-				    var optSubText = $( "<img src='images/"+entity.treatments[1]+".jpg'/>"+
-		    				"<h3>"+entity.date[1]+"</h3>"+
-		    				"<h3>"+entity.currentTime[1]+"</h3>"+
-		    				"<p>"+entity.fname[0]+" "+entity.fname[1]+"</p>"+
-		    				"<p>"+entity.lname[0]+" "+entity.lname[1]+"</p>"+
-		    				"<p>"+entity.bsreading[0]+" "+entity.bsreading[1]+"</p>"+
-		    				"<p>"+entity.sex[0]+" "+entity.sex[1]+"</p>"+
-		    				"<p>"+entity.condition[0]+" "+entity.condition[1]+"</p>"+
-		    				"<p>"+entity.treatments[0]+" "+entity.treatments[1]+"</p>"+
-		    				"<p>"+entity.comments[0]+" "+entity.comments[1]+"</p>");
+				    var optSubText = $( "<img src='images/"+logItem.treatments[1]+".jpg'/>"+
+		    				"<h3>"+logItem.date[1]+"</h3>"+
+		    				"<h3>"+logItem.currentTime[1]+"</h3>"+
+		    				"<p>"+logItem.fname[0]+" "+logItem.fname[1]+"</p>"+
+		    				"<p>"+logItem.lname[0]+" "+logItem.lname[1]+"</p>"+
+		    				"<p>"+logItem.bsreading[0]+" "+logItem.bsreading[1]+"</p>"+
+		    				"<p>"+logItem.sex[0]+" "+logItem.sex[1]+"</p>"+
+		    				"<p>"+logItem.condition[0]+" "+logItem.condition[1]+"</p>"+
+		    				"<p>"+logItem.treatments[0]+" "+logItem.treatments[1]+"</p>"+
+		    				"<p>"+logItem.comments[0]+" "+logItem.comments[1]+"</p>");
 		    			//Creating Edit Link in Item
 		    			var editLink = $("<a href='#addLogForm' id='edit"+i+"'> Edit Log Item</a>");
 		    				editLink.on('click', function(){
