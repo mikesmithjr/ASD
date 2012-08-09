@@ -18,25 +18,15 @@ $("#dataTypes").on('pageinit', function(){
 		    url      : "data/data.json",
 		    type     : "GET",
 		    dataType : "json",
-		    success  : function(result){
-		        console.log(result);
-		        $.each(result, function() {
-				  $.each(this, function(name, value) {
-				    /// do stuff
+		    success  : function(json){
+		        console.log(json.logItems[0].treatments[1]);
+		        $.each(json, function(){
+		        	var item = $(this);
+		        	
+		        	
+		            /// do stuff
 				    
-				  });
-				});
-		        /*//Write Data from Local Storage to the browser
-		    		$("#logitemList").empty();
-		    		//Making list items
-		    		for(var i=0, len=result.length; i<len;i++){
-		    			var makeli = $("<li id='listItem"+i+"'></li>");
-		    			var key = result.key(i);
-		    			var value = result.getItem(key);
-		    			
-
-		    			//create log item list
-		    			var optSubText = $( "<img src='images/"+value.treatments[1]+".jpg'/>"+
+				    var optSubText = $( "<img src='images/"+value.treatments[1]+".jpg'/>"+
 		    				"<h3>"+value.date[1]+"</h3>"+
 		    				"<h3>"+value.currentTime[1]+"</h3>"+
 		    				"<p>"+value.fname[0]+" "+value.fname[1]+"</p>"+
@@ -61,9 +51,10 @@ $("#dataTypes").on('pageinit', function(){
 		    			editLink.html(optSubText);
 		    			//Adding edit and delete links to the list
 		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
-		    			$("#logitemList").listview("refresh");
-		    			};*/
-
+				    
+				 	});
+				
+		   		
 		    },
 		    error: function(){
 		    	alert("JSON Ajax Error");
@@ -75,6 +66,7 @@ $("#dataTypes").on('pageinit', function(){
 
 	$("#xmlBtn").on("click", function(){
 			console.log("Starting XML");
+			$("#logitemList").empty();
 
 			$.ajax({
 				url: "data/data.xml",
@@ -85,7 +77,7 @@ $("#dataTypes").on('pageinit', function(){
 					$(xml).find("item").each(function(){
 					    var item = $(this);
 					    console.log("Name: ", item.find("fname").text());
-					    $("#logitemList").empty();
+					    
 					    var makeli = $("<li id='listItem"+item+"'></li>");
 		    					    			
 		    			//create log item list
@@ -114,7 +106,7 @@ $("#dataTypes").on('pageinit', function(){
 		    			editLink.html(optSubText);
 		    			//Adding edit and delete links to the list
 		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
-		    			$("#logitemList").listview("refresh");
+		    			
 
 					});
 					
@@ -125,52 +117,54 @@ $("#dataTypes").on('pageinit', function(){
 
 			
 		});
+		$("#logitemList").listview("refresh");
 	});
 
 	$("#yamlBtn").on("click", function(){
-			YAML.fromURL("data/data.yaml", function(result){
+			$("#logitemList").empty();
+			YAML.fromURL("data/data.yaml", function(yaml){
 					console.log("Starting YAML");
-					console.log(result);
+					console.log(yaml);
+					$.each(yaml, function(){
+						$.each(this, function(name, value){
+							/// do stuff
+							console.log(name + "=" + value);
 
-					//Write Data from Local Storage to the browser
-		    		$("#logitemList").empty();
-		    		//Making list items
-		    		for(var i=0, len=result.length; i<len;i++){
-		    			var makeli = $("<li id='listItem"+i+"'></li>");
-		    			var key = result.key(i);
-		    			var value = result.getItem(key);
-		    			
+							/*var item = $(this);
+							var makeli = $("<li id='listItem"+item+"'></li>");
+		    					    			
 		    			//create log item list
-		    			var optSubText = $( "<img src='images/"+value.treatments[1]+".jpg'/>"+
-		    				"<h3>"+value.date[1]+"</h3>"+
-		    				"<h3>"+value.currentTime[1]+"</h3>"+
-		    				"<p>"+value.fname[0]+" "+value.fname[1]+"</p>"+
-		    				"<p>"+value.lname[0]+" "+value.lname[1]+"</p>"+
-		    				"<p>"+value.bsreading[0]+" "+value.bsreading[1]+"</p>"+
-		    				"<p>"+value.sex[0]+" "+value.sex[1]+"</p>"+
-		    				"<p>"+value.condition[0]+" "+value.condition[1]+"</p>"+
-		    				"<p>"+value.treatments[0]+" "+value.treatments[1]+"</p>"+
-		    				"<p>"+value.comments[0]+" "+value.comments[1]+"</p>");
-		    			//Creating Edit Link in Item
-		    			var editLink = $("<a href='#addLogForm' id='edit"+key+"'> Edit Log Item</a>");
-		    				editLink.on('click', function(){
-		    					editItem(this.id);
+		    				var optSubText = $( "<img src='images/"+item.find("treatments").text()+".jpg'/>"+
+		    				"<h3>"+item.find("date").text()+"</h3>"+
+		    				"<h3>"+item.find("currentTime").text()+"</h3>"+
+		    				"<p>"+"First Name:"+" "+item.find("fname").text()+"</p>"+
+		    				"<p>"+"Last Name:"+" "+item.find("lname").text()+"</p>"+
+		    				"<p>"+"Blood Sugar Reading:"+" "+item.find("bsreading").text()+"</p>"+
+		    				"<p>"+"Male or Female:"+" "+item.find("sex").text()+"</p>"+
+		    				"<p>"+"Condition:"+" "+item.find("condition").text()+"</p>"+
+		    				"<p>"+"Current Treatment:"+" "+item.find("treatments").text()+"</p>"+
+		    				"<p>"+"Comments:"+" "+item.find("comments").text()+"</p>");
+		    				//Creating Edit Link in Item
+			    			var editLink = $("<a href='#addLogForm' id='edit"+item+"'> Edit Log Item</a>");
+			    				editLink.on('click', function(){
+			    					editItem(this.id);
 
-		    				});
-		    			//Creating Delete Link in Item
-		    			var deleteLink = $("<a href='#list' id='delete"+key+"'>Delete Item</a>");
-		    				deleteLink.on('click', function(){
-		    					deleteItem(this.id);
-		    				});
-		    			//Make item data the edit link
-		    			editLink.html(optSubText);
-		    			//Adding edit and delete links to the list
-		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
-		    			$("#logitemList").listview("refresh");
-		    			};
+			    				});
+			    			//Creating Delete Link in Item
+			    			var deleteLink = $("<a href='#list' id='delete"+item+"'>Delete Item</a>");
+			    				deleteLink.on('click', function(){
+			    					deleteItem(this.id);
+			    				});
+			    			//Make item data the edit link
+			    			editLink.html(optSubText);
+			    			//Adding edit and delete links to the list
+			    			makeli.append(editLink, deleteLink).appendTo("#logitemList");*/
+						});
+					});
+					
 
 			});
-
+		$("#logitemList").listview("refresh");
 	});	
 
 });
