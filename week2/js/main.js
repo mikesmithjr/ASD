@@ -20,7 +20,13 @@ $("#dataTypes").on('pageinit', function(){
 		    dataType : "json",
 		    success  : function(result){
 		        console.log(result);
-		        //Write Data from Local Storage to the browser
+		        $.each(result, function() {
+				  $.each(this, function(name, value) {
+				    /// do stuff
+				    
+				  });
+				});
+		        /*//Write Data from Local Storage to the browser
 		    		$("#logitemList").empty();
 		    		//Making list items
 		    		for(var i=0, len=result.length; i<len;i++){
@@ -56,7 +62,7 @@ $("#dataTypes").on('pageinit', function(){
 		    			//Adding edit and delete links to the list
 		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
 		    			$("#logitemList").listview("refresh");
-		    			};
+		    			};*/
 
 		    },
 		    error: function(){
@@ -76,12 +82,40 @@ $("#dataTypes").on('pageinit', function(){
 				dataType: "xml",
 				success: function(xml){
 					console.log("where is my xml");
-					
-					var data = $.parseXML(xml);
-					var items = $(data);
 					$(xml).find("item").each(function(){
 					    var item = $(this);
-					    console.log("Name: ", item.find("fname"));
+					    console.log("Name: ", item.find("fname").text());
+					    $("#logitemList").empty();
+					    var makeli = $("<li id='listItem"+item+"'></li>");
+		    					    			
+		    			//create log item list
+		    			var optSubText = $( "<img src='images/"+item.find("treatments").text()+".jpg'/>"+
+		    				"<h3>"+item.find("date").text()+"</h3>"+
+		    				"<h3>"+item.find("currentTime").text()+"</h3>"+
+		    				"<p>"+"First Name:"+" "+item.find("fname").text()+"</p>"+
+		    				"<p>"+"Last Name:"+" "+item.find("lname").text()+"</p>"+
+		    				"<p>"+"Blood Sugar Reading:"+" "+item.find("bsreading").text()+"</p>"+
+		    				"<p>"+"Male or Female:"+" "+item.find("sex").text()+"</p>"+
+		    				"<p>"+"Condition:"+" "+item.find("condition").text()+"</p>"+
+		    				"<p>"+"Current Treatment:"+" "+item.find("treatments").text()+"</p>"+
+		    				"<p>"+"Comments:"+" "+item.find("comments").text()+"</p>");
+		    			//Creating Edit Link in Item
+		    			var editLink = $("<a href='#addLogForm' id='edit"+item+"'> Edit Log Item</a>");
+		    				editLink.on('click', function(){
+		    					editItem(this.id);
+
+		    				});
+		    			//Creating Delete Link in Item
+		    			var deleteLink = $("<a href='#list' id='delete"+item+"'>Delete Item</a>");
+		    				deleteLink.on('click', function(){
+		    					deleteItem(this.id);
+		    				});
+		    			//Make item data the edit link
+		    			editLink.html(optSubText);
+		    			//Adding edit and delete links to the list
+		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
+		    			$("#logitemList").listview("refresh");
+
 					});
 					
 				},
