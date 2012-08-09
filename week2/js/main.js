@@ -13,37 +13,37 @@ $("#dataTypes").on('pageinit', function(){
 
 	$("#jsonBtn").on("click", function(){
 		console.log("Starting JSON");
-
+		$("#logitemList").empty();
 		$.ajax({
 		    url      : "data/data.json",
 		    type     : "GET",
 		    dataType : "json",
 		    success  : function(json){
-		        console.log(json.logItems[0].treatments[1]);
-		        $.each(json, function(){
-		        	var item = $(this);
+		        console.log(json.logItems);
+		        $.each(json.logItems, function(i, entity){
+		        	console.log(i + " " + entity.fname[0] + " " + entity.fname[1]);
 		        	
 		        	
 		            /// do stuff
-				    
-				    var optSubText = $( "<img src='images/"+value.treatments[1]+".jpg'/>"+
-		    				"<h3>"+value.date[1]+"</h3>"+
-		    				"<h3>"+value.currentTime[1]+"</h3>"+
-		    				"<p>"+value.fname[0]+" "+value.fname[1]+"</p>"+
-		    				"<p>"+value.lname[0]+" "+value.lname[1]+"</p>"+
-		    				"<p>"+value.bsreading[0]+" "+value.bsreading[1]+"</p>"+
-		    				"<p>"+value.sex[0]+" "+value.sex[1]+"</p>"+
-		    				"<p>"+value.condition[0]+" "+value.condition[1]+"</p>"+
-		    				"<p>"+value.treatments[0]+" "+value.treatments[1]+"</p>"+
-		    				"<p>"+value.comments[0]+" "+value.comments[1]+"</p>");
+				    var makeli = $("<li id='listItem"+i+"'></li>");
+				    var optSubText = $( "<img src='images/"+entity.treatments[1]+".jpg'/>"+
+		    				"<h3>"+entity.date[1]+"</h3>"+
+		    				"<h3>"+entity.currentTime[1]+"</h3>"+
+		    				"<p>"+entity.fname[0]+" "+entity.fname[1]+"</p>"+
+		    				"<p>"+entity.lname[0]+" "+entity.lname[1]+"</p>"+
+		    				"<p>"+entity.bsreading[0]+" "+entity.bsreading[1]+"</p>"+
+		    				"<p>"+entity.sex[0]+" "+entity.sex[1]+"</p>"+
+		    				"<p>"+entity.condition[0]+" "+entity.condition[1]+"</p>"+
+		    				"<p>"+entity.treatments[0]+" "+entity.treatments[1]+"</p>"+
+		    				"<p>"+entity.comments[0]+" "+entity.comments[1]+"</p>");
 		    			//Creating Edit Link in Item
-		    			var editLink = $("<a href='#addLogForm' id='edit"+key+"'> Edit Log Item</a>");
+		    			var editLink = $("<a href='#addLogForm' id='edit"+i+"'> Edit Log Item</a>");
 		    				editLink.on('click', function(){
 		    					editItem(this.id);
 
 		    				});
 		    			//Creating Delete Link in Item
-		    			var deleteLink = $("<a href='#list' id='delete"+key+"'>Delete Item</a>");
+		    			var deleteLink = $("<a href='#list' id='delete"+i+"'>Delete Item</a>");
 		    				deleteLink.on('click', function(){
 		    					deleteItem(this.id);
 		    				});
@@ -60,6 +60,7 @@ $("#dataTypes").on('pageinit', function(){
 		    	alert("JSON Ajax Error");
 		    }
 		});
+		$("#logitemList").listview("refresh");
 	});
 
 
