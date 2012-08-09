@@ -126,45 +126,48 @@ $("#dataTypes").on('pageinit', function(){
 			YAML.fromURL("data/data.yaml", function(yaml){
 					console.log("Starting YAML");
 					console.log(yaml);
-					$.each(yaml, function(){
-						$.each(this, function(name, value){
+					var logItems = {}
+					$.extend(logItems, yaml);
+					console.log(logItems);
 							/// do stuff
-							console.log(name + "=" + value);
+							
 
-							/*var item = $(this);
-							var makeli = $("<li id='listItem"+item+"'></li>");
-		    					    			
-		    			//create log item list
-		    				var optSubText = $( "<img src='images/"+item.find("treatments").text()+".jpg'/>"+
-		    				"<h3>"+item.find("date").text()+"</h3>"+
-		    				"<h3>"+item.find("currentTime").text()+"</h3>"+
-		    				"<p>"+"First Name:"+" "+item.find("fname").text()+"</p>"+
-		    				"<p>"+"Last Name:"+" "+item.find("lname").text()+"</p>"+
-		    				"<p>"+"Blood Sugar Reading:"+" "+item.find("bsreading").text()+"</p>"+
-		    				"<p>"+"Male or Female:"+" "+item.find("sex").text()+"</p>"+
-		    				"<p>"+"Condition:"+" "+item.find("condition").text()+"</p>"+
-		    				"<p>"+"Current Treatment:"+" "+item.find("treatments").text()+"</p>"+
-		    				"<p>"+"Comments:"+" "+item.find("comments").text()+"</p>");
-		    				//Creating Edit Link in Item
-			    			var editLink = $("<a href='#addLogForm' id='edit"+item+"'> Edit Log Item</a>");
+						$.each(logItems, function(i, logItem){
+			        	console.log(i + " " + " " + logItem.fname);
+			        	
+			        	
+			            /// do stuff
+					    var makeli = $("<li id='listItem"+i+"'></li>");
+					    var optSubText = $( "<img src='images/"+logItem.treatments+".jpg'/>"+
+			    				"<h3>"+logItem.date+"</h3>"+
+			    				"<h3>"+logItem.currentTime+"</h3>"+
+			    				"<p>"+"First Name: "+" "+logItem.fname+"</p>"+
+			    				"<p>"+"Last Name: "+" "+logItem.lname+"</p>"+
+			    				"<p>"+"Blood Sugar Reading: "+" "+logItem.bsreading+"</p>"+
+			    				"<p>"+"Male or Female: "+" "+logItem.sex+"</p>"+
+			    				"<p>"+"Condition: "+" "+logItem.condition+"</p>"+
+			    				"<p>"+"Current Treament: "+" "+logItem.treatments+"</p>"+
+			    				"<p>"+"Comments: "+" "+logItem.comments+"</p>");
+			    			//Creating Edit Link in Item
+			    			var editLink = $("<a href='#addLogForm' id='edit"+i+"'> Edit Log Item</a>");
 			    				editLink.on('click', function(){
 			    					editItem(this.id);
 
 			    				});
 			    			//Creating Delete Link in Item
-			    			var deleteLink = $("<a href='#list' id='delete"+item+"'>Delete Item</a>");
+			    			var deleteLink = $("<a href='#list' id='delete"+i+"'>Delete Item</a>");
 			    				deleteLink.on('click', function(){
 			    					deleteItem(this.id);
 			    				});
 			    			//Make item data the edit link
 			    			editLink.html(optSubText);
 			    			//Adding edit and delete links to the list
-			    			makeli.append(editLink, deleteLink).appendTo("#logitemList");*/
+			    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
 						});
 					});
 					
 
-			});
+			
 		$("#logitemList").listview("refresh");
 	});	
 
