@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<items>
+
+	<item>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/17/2012</date>
+		<currentTime>16:00</currentTime>
+		<bsreading>145</bsreading>
+		<sex>Male</sex>
+		<condition>5</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling OK.</comments>
+	</item>
+
+	<item>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/18/2012</date>
+		<currentTime>19:00</currentTime>
+		<bsreading>115</bsreading>
+		<sex>Male</sex>
+		<condition>8</condition>
+		<treatments>Insulin</treatments>
+		<comments>Feeling Great!!</comments>
+	</item>
+
+	<item>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/19/2012</date>
+		<currentTime>18:00</currentTime>
+		<bsreading>125</bsreading>
+		<sex>Male</sex>
+		<condition>10</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling Awesome!!</comments>
+	</item>
+
+	<item>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/20/2012</date>
+		<currentTime>08:00</currentTime>
+		<bsreading>125</bsreading>
+		<sex>Male</sex>
+		<condition>7</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling Great Today!!</comments>
+	</item>
+
+	<item>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/21/2012</date>
+		<currentTime>12:00</currentTime>
+		<bsreading>55</bsreading>
+		<sex>Male</sex>
+		<condition>4</condition>
+		<treatments>Insulin</treatments>
+		<comments>Not feeling well.</comments>
+	</item>
+
+	<item>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/22/2012</date>
+		<currentTime>16:00</currentTime>
+		<bsreading>195</bsreading>
+		<sex>Male</sex>
+		<condition>5</condition>
+		<treatments>Pills</treatments>
+		<comments>Feeling sick.</comments>
+	</item>
+	
+	<item>
+		<fname>Jack</fname>
+		<lname>Robles</lname>
+		<date>05/23/2012</date>
+		<currentTime>19:00</currentTime>
+		<bsreading>105</bsreading>
+		<sex>Male</sex>
+		<condition>8</condition>
+		<treatments>Insulin</treatments>
+		<comments>Feeling Great!!</comments>
+	</item>
+</items>

@@ -1,0 +1,179 @@
+/*
+Project 4 Gold App
+ASD Term 1208
+Michael Smith Jr.
+The Diabetic's Log
+*/
+
+
+
+/*a:hover{color:green; outline: 1px dotted red;}*/
+
+/*body{
+	
+	background-image: url(images/narowstripe.gif);
+	visibility: visible;
+	width: 100%;
+	height: 100%;
+}
+.ui-body{
+
+	background-image: url(images/narowstripe.gif);
+	visibility: visible;
+	width: 100%;
+	height: 100%;
+	background-image: -webkit-radial-gradient(6% 12%, ellipse farthest-corner, rgba(171, 171, 171, 0.3), #0000ff 21%,#0d27d4 26%,#3872d6 35%,rgba(20, 153, 255, 0.8) 59%);
+	background-image: -webkit-radial-gradient(6% 12%, ellipse farthest-corner, rgba(247, 247, 247, 0.3), #0000ff 21%,#0d27d4 -21%,#3872d6 50%,rgba(20, 153, 255, 0.7) 59%);
+}*/
+
+.ui-page {
+    background: url("images/texture.png");
+    background-repeat: repeat;
+}
+
+
+.feature{
+	/*margin: 10px 0px 10px 0px;*/
+	text-align: center;
+}
+
+
+nav{
+	background: white;
+	border-radius: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+label.error{
+	display: block;
+	margin: 10px 0px;
+	color: red;
+}
+/*.button{
+	width: 350px; height: 44px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px #000;
+	margin-bottom: 12px;
+	margin-left: 7px;
+	padding-top: 15px;
+	font-weight: bold;
+	font-size: 24px;
+	font-family: Helvetica, sans-serif;
+	text-shadow: 1px 1px lightgrey;
+	text-align: center;
+	background: #e4f5fc; /* Old browsers */
+	/*background: -moz-linear-gradient(top, #e4f5fc 0%, #bfe8f9 50%, #9fd8ef 51%, #2ab0ed 100%); /* FF3.6+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4f5fc), color-stop(50%,#bfe8f9), color-stop(51%,#9fd8ef), color-stop(100%,#2ab0ed)); /* Chrome,Safari4+ */
+	/*background: -webkit-linear-gradient(top, #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* Chrome10+,Safari5.1+ */
+	/*background: -o-linear-gradient(top, #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* Opera 11.10+ */
+	/*background: -ms-linear-gradient(top, #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* IE10+ */
+	/*background: linear-gradient(top, #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
+/*}*/
+.titled{
+	background: lightgrey;
+	color: white;
+	padding-left: 10px;
+	border: 1px solid black;
+	border-radius: 15px;
+	font-weight: bold;
+	font-size: 15px;
+	font-family: Helvetica, sans-serif;
+
+	
+	
+}
+/*h1{
+	text-align: center;
+}*/
+/*h1{
+	background: tan;
+	color: white;
+	padding: 20px;
+	border: 1px solid black;
+	border-radius: 15px;
+	font-weight: bold;
+	font-size: 15px;
+	font-family: Helvetica, sans-serif;
+	text-shadow: 1px 1px black;
+	text-align: center;
+	
+}*/
+/*h2{
+	font-weight: bold;
+	font-size: 25px;
+	font-family: Helvetica, sans-serif;
+	text-shadow: 1px 1px black;
+}*/
+.ui-body-c, .ui-overlay-c {
+	color: black;
+	text-shadow: 0 1px 0 grey;
+}
+#brief{
+	text-align: center;
+}
+#questions{
+	background: lightblue;
+	list-style: none;
+	padding:  20px;
+	margin-bottom: 10px;
+	font-family: Helvetica, sans-serif;
+}
+
+#logItem{
+	list-style: none;
+	background: lightgrey;
+	padding:  20px;
+	margin-bottom: 10px;
+	border: 1px solid black;
+}
+#sex{
+	list-style: none;
+}
+
+#addItem{
+	background: silver;
+	padding: 20px;
+	border: 2px solid black;
+	width: 100px;
+	text-align: center;
+	border-radius: 25px;
+	box-shadow: 2px 5px 0 0 rgba(72,72,72,1);
+}
+li{
+	list-style: none;
+	font-family: Helvetica, sans-serif;
+}
+
+label{
+	display: block;
+	word-spacing: 0.2em;
+}
+/*#search{
+	width: 300px;
+	text-align: center;
+
+}
+
+
+
+
+
+
+p{
+	font-size: 14px;
+	font-family: Helvetica, sans-serif;
+}
+legend{
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Helvetica, sans-serif;
+}*/
+
+
+
+
