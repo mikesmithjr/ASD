@@ -60,7 +60,7 @@ $("#dataTypes").on('pageinit', function(){
 		    	alert("JSON Ajax Error");
 		    }
 		});
-		$("#logitemList").listview("refresh");
+		
 	});
 
 
@@ -118,7 +118,7 @@ $("#dataTypes").on('pageinit', function(){
 
 			
 		});
-		$("#logitemList").listview("refresh");
+		
 	});
 
 	$("#yamlBtn").on("click", function(){
@@ -168,10 +168,11 @@ $("#dataTypes").on('pageinit', function(){
 					
 
 			
-		$("#logitemList").listview("refresh");
+		
 	});	
 
 });
+
 
 $("#addLogForm").on('pageinit', function(){
 
