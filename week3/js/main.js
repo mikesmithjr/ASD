@@ -33,19 +33,19 @@ var storeData = function(key){
 
 //edit single item
 	var editItem =function(id) {
-		//grab the data from our item in local storage
+		/*//grab the data from our item in local storage
 		var key = parseInt(id.match(/\d+/g));
-		var logItem = JSON.parse(localStorage.getItem(key));
+		var logItem = JSON.parse(localStorage.getItem(key));*/
 		//Populate the form with current local storage values.
-		$("#fname").val(logItem.fname[1]);
-		$("#lname").val(logItem.lname[1]);
-		$("#date").val(logItem.date[1]);
-		$("#currentTime").val(logItem.currentTime[1]);
-		$("#bsreading").val(logItem.bsreading[1]);
-		$('input#' + logItem.sex[1].toLowerCase()).attr('checked', true).checkboxradio('refresh');
-		$("#condition").val(logItem.condition[1]);
-		$("#treatments").val(logItem.treatments[1]).selectmenu("refresh");
-		$("#comments").val(logItem.comments[1]);
+		$("#fname").val(logItem.value.fname[1]);
+		$("#lname").val(logItem.value.lname[1]);
+		$("#date").val(logItem.value.date[1]);
+		$("#currentTime").val(logItem.value.currentTime[1]);
+		$("#bsreading").val(logItem.value.bsreading[1]);
+		$('input#' + logItem.value.sex[1].toLowerCase()).attr('checked', true).checkboxradio('refresh');
+		$("#condition").val(logItem.value.condition[1]);
+		$("#treatments").val(logItem.value.treatments[1]).selectmenu("refresh");
+		$("#comments").val(logItem.value.comments[1]);
 		//Change submit button value to edit button
 		$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
 		//Save the key value established in this function as a property of #addLogItem
@@ -86,37 +86,31 @@ var storeData = function(key){
 
 $("#home").on('pageinit', function(){
 	console.log("I'm Ready!")
-	/*$("#news").on("click", getData);
-	*/
-});
-
-$("#dataTypes").on('pageinit', function(){
-
 	$("#jsonBtn").on("click", function(){
 		console.log("Starting JSON");
 		$("#logitemList").empty();
 		$.ajax({
-		    url      : "data/data.json",
+		    url      : "_view/logitems",
 		    type     : "GET",
 		    dataType : "json",
 		    success  : function(json){
-		        console.log(json.logItems);
-		        $.each(json.logItems, function(i, logItem){
-		        	console.log(i + " " + logItem.fname[0] + " " + logItem.fname[1]);
+		        console.log(json);
+		        $.each(json.rows, function(i, logItem){
+		        	console.log(i + " " + logItem.value.fname[0] + " " + logItem.value.fname[1]);
 		        	
 		        	
 		            /// do stuff
 				    var makeli = $("<li id='listItem"+i+"'></li>");
-				    var optSubText = $( "<img src='images/"+logItem.treatments[1]+".jpg'/>"+
-		    				"<h3>"+logItem.date[1]+"</h3>"+
-		    				"<h3>"+logItem.currentTime[1]+"</h3>"+
-		    				"<p>"+logItem.fname[0]+" "+logItem.fname[1]+"</p>"+
-		    				"<p>"+logItem.lname[0]+" "+logItem.lname[1]+"</p>"+
-		    				"<p>"+logItem.bsreading[0]+" "+logItem.bsreading[1]+"</p>"+
-		    				"<p>"+logItem.sex[0]+" "+logItem.sex[1]+"</p>"+
-		    				"<p>"+logItem.condition[0]+" "+logItem.condition[1]+"</p>"+
-		    				"<p>"+logItem.treatments[0]+" "+logItem.treatments[1]+"</p>"+
-		    				"<p>"+logItem.comments[0]+" "+logItem.comments[1]+"</p>");
+				    var optSubText = $( "<img src='images/"+logItem.value.treatments[1]+".jpg'/>"+
+		    				"<h3>"+logItem.value.date[1]+"</h3>"+
+		    				"<h3>"+logItem.value.currentTime[1]+"</h3>"+
+		    				"<p>"+logItem.value.fname[0]+" "+logItem.value.fname[1]+"</p>"+
+		    				"<p>"+logItem.value.lname[0]+" "+logItem.value.lname[1]+"</p>"+
+		    				"<p>"+logItem.value.bsreading[0]+" "+logItem.value.bsreading[1]+"</p>"+
+		    				"<p>"+logItem.value.sex[0]+" "+logItem.value.sex[1]+"</p>"+
+		    				"<p>"+logItem.value.condition[0]+" "+logItem.value.condition[1]+"</p>"+
+		    				"<p>"+logItem.value.treatments[0]+" "+logItem.value.treatments[1]+"</p>"+
+		    				"<p>"+logItem.value.comments[0]+" "+logItem.value.comments[1]+"</p>");
 		    			//Creating Edit Link in Item
 		    			var editLink = $("<a href='#addLogForm' id='edit"+i+"'> Edit Log Item</a>");
 		    				editLink.on('click', function(){
@@ -143,6 +137,11 @@ $("#dataTypes").on('pageinit', function(){
 		});
 		
 	});
+});
+
+$("#dataTypes").on('pageinit', function(){
+
+	
 
 
 
