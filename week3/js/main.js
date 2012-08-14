@@ -53,14 +53,14 @@ $("#dataTypes").on('pageinit', function(){
 		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
 				    
 				 	});
-				
+				$("#logitemList").listview('refresh');
 		   		
 		    },
 		    error: function(){
 		    	alert("JSON Ajax Error");
 		    }
 		});
-		$("#logitemList").listview("refresh");
+		
 	});
 
 
@@ -110,7 +110,7 @@ $("#dataTypes").on('pageinit', function(){
 		    			
 
 					});
-					
+					$("#logitemList").listview('refresh');
 				},
 				error: function(){
 					alert("XML Ajax Error");
@@ -118,7 +118,7 @@ $("#dataTypes").on('pageinit', function(){
 
 			
 		});
-		$("#logitemList").listview("refresh");
+		
 	});
 
 	$("#yamlBtn").on("click", function(){
@@ -164,14 +164,16 @@ $("#dataTypes").on('pageinit', function(){
 			    			//Adding edit and delete links to the list
 			    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
 						});
+						$("#logitemList").listview('refresh');
 					});
 					
 
 			
-		$("#logitemList").listview("refresh");
+		
 	});	
 
 });
+
 
 $("#addLogForm").on('pageinit', function(){
 
