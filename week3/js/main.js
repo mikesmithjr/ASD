@@ -2,9 +2,90 @@ var parseLogItemForm = function(data){
 	// uses form data here;
 	console.log(data);
 };
+var storeData = function(key){
+		//if there is no key , this is a new item and needs a key
+		if(!key){
+		var id = Math.floor(Math.random()*100000001);
+		}else{
+			//Set the id to the existing key we're editing so that it will save over the data.
+			//The key is the same key that's been passed along from the editSubmit event handler
+			//to the validate function, and then passed here.
+			id = key;
+		}
+		//Get Form Data and store in object
+		//Object properties contain array with form label and input value.
+		
+		var logItem = {};
+			logItem.fname = ["First Name:", $("#fname").val()];
+			logItem.lname = ["Last Name:", $("#lname").val()];
+			logItem.date = ["Today's Date:", $("#date").val()];
+			logItem.currentTime = ["Current Time:", $("#currentTime").val()];
+			logItem.bsreading = ["Blood Sugar Reading:", $("#bsreading").val()];
+			logItem.sex = ["Male or Female:", $('input[name="sex"]:checked', '#addLogItem').val()];
+			logItem.condition = ["Condition:", $("#condition").val()];
+			logItem.treatments = ["Current Treatment:", $("#treatments").val()];
+			logItem.comments = ["Comments:", $("#comments").val()];
+		//Saving data into local storage using Stringify
+		localStorage.setItem(id, JSON.stringify(logItem));
+		alert("Log Saved!");
+		
+	};
+
+//edit single item
+	var editItem =function(id) {
+		//grab the data from our item in local storage
+		var key = parseInt(id.match(/\d+/g));
+		var logItem = JSON.parse(localStorage.getItem(key));
+		//Populate the form with current local storage values.
+		$("#fname").val(logItem.fname[1]);
+		$("#lname").val(logItem.lname[1]);
+		$("#date").val(logItem.date[1]);
+		$("#currentTime").val(logItem.currentTime[1]);
+		$("#bsreading").val(logItem.bsreading[1]);
+		$('input#' + logItem.sex[1].toLowerCase()).attr('checked', true).checkboxradio('refresh');
+		$("#condition").val(logItem.condition[1]);
+		$("#treatments").val(logItem.treatments[1]).selectmenu("refresh");
+		$("#comments").val(logItem.comments[1]);
+		//Change submit button value to edit button
+		$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
+		//Save the key value established in this function as a property of #addLogItem
+		$("#submit").attr("key", key);
+		
+		
+		
+
+	};
+//delete single list item
+	var deleteItem = function(){
+				var ask = confirm("Are you sure you want to delete this log entry?");
+				var key = localStorage.key(i);
+				if(ask){
+					localStorage.removeItem(key);
+					alert("Log Entry was deleted.");
+					$("#logitemList").listview('refresh');
+				}else{
+					alert("Log entry was Not deleted.");
+				};
+		
+	};
+//clear local storage
+	var clearData = function() {
+		if(localStorage.length === 0){
+			alert("There is no data to clear.");
+		}else{
+			var ask = confirm("Deleting ALL log items? This can NOT be undone.");
+			if(ask){
+				localStorage.clear();
+				alert("All log items are deleted!");
+				$("#logitemList").empty();
+			}else{
+				alert("Log items not deleted.");
+			};
+		};
+	};
 
 $("#home").on('pageinit', function(){
-
+	console.log("I'm Ready!")
 	/*$("#news").on("click", getData);
 	*/
 });
@@ -187,39 +268,13 @@ $("#addLogForm").on('pageinit', function(){
 		}
 	});
 
-	var storeData = function(key){
-		//if there is no key , this is a new item and needs a key
-		if(!key){
-		var id = Math.floor(Math.random()*100000001);
-		}else{
-			//Set the id to the existing key we're editing so that it will save over the data.
-			//The key is the same key that's been passed along from the editSubmit event handler
-			//to the validate function, and then passed here.
-			id = key;
-		}
-		//Get Form Data and store in object
-		//Object properties contain array with form label and input value.
-		
-		var logItem = {};
-			logItem.fname = ["First Name:", $("#fname").val()];
-			logItem.lname = ["Last Name:", $("#lname").val()];
-			logItem.date = ["Today's Date:", $("#date").val()];
-			logItem.currentTime = ["Current Time:", $("#currentTime").val()];
-			logItem.bsreading = ["Blood Sugar Reading:", $("#bsreading").val()];
-			logItem.sex = ["Male or Female:", $('input[name="sex"]:checked', '#addLogItem').val()];
-			logItem.condition = ["Condition:", $("#condition").val()];
-			logItem.treatments = ["Current Treatment:", $("#treatments").val()];
-			logItem.comments = ["Comments:", $("#comments").val()];
-		//Saving data into local storage using Stringify
-		localStorage.setItem(id, JSON.stringify(logItem));
-		alert("Log Saved!");
-		
-	};
+	
 	//Display the data from local storage to screen
     	var getData = function(){
     		if(localStorage.length === 0){
     			alert("There is no data in Local Storage so default data was added.");
     			autoFillData();
+    			/*$("#logitemList").listview('refresh');*/
     		}
     		//Write Data from Local Storage to the browser
     		$("#logitemList").empty();
@@ -258,18 +313,8 @@ $("#addLogForm").on('pageinit', function(){
     			//Adding edit and delete links to the list
     			makeli.append(editLink, deleteLink).appendTo("#logitemList");
     			};
-    		var deleteItem = function(){
-			var ask = confirm("Are you sure you want to delete this log entry?");
-			/*var key = localStorage.key(i);*/
-			if(ask){
-				localStorage.removeItem(key);
-				alert("Log Entry was deleted.");
-				$("#list").listview('refresh');
-			}else{
-				alert("Log entry was Not deleted.");
-			};
-		
-	};	
+    			
+	    			
     	};
 	    //Auto Populate Default data to local storage
 		var autoFillData = function(){
@@ -278,7 +323,7 @@ $("#addLogForm").on('pageinit', function(){
 				var id = Math.floor(Math.random()*100000001);
 				localStorage.setItem(id, JSON.stringify(json[n]));
 			};
-		
+			
 		};
 	$("#submit").on("click", storeData);
 	$("#displayLog").on("click", getData);
@@ -290,44 +335,9 @@ $("#list").on('pageinit', function(){
 
 
 
-	//edit single item
-	var editItem =function(id) {
-		//grab the data from our item in local storage
-		var key = parseInt(id.match(/\d+/g));
-		var logItem = JSON.parse(localStorage.getItem(key));
-		//Populate the form with current local storage values.
-		$("#fname").val(logItem.fname[1]);
-		$("#lname").val(logItem.lname[1]);
-		$("#date").val(logItem.date[1]);
-		$("#currentTime").val(logItem.currentTime[1]);
-		$("#bsreading").val(logItem.bsreading[1]);
-		$('input#' + logItem.sex[1].toLowerCase()).attr('checked', true).checkboxradio('refresh');
-		$("#condition").val(logItem.condition[1]);
-		$("#treatments").val(logItem.treatments[1]).selectmenu("refresh");
-		$("#comments").val(logItem.comments[1]);
-		//Change submit button value to edit button
-		$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
-		//Save the key value established in this function as a property of #addLogItem
-		$("#submit").attr("key", key);
-		
-		
-		
-
-	};
 	
-	var deleteItem = function(){
-		var ask = confirm("Are you sure you want to delete this log entry?");
-		var key = localStorage.key();
-		if(ask){
-			localStorage.removeItem(key);
-			alert("Log Entry was deleted.");
-			
-		}else{
-			alert("Log entry was Not deleted.");
-		};
-		
-	};
-
+	
+	
 	
 
 	//clear local storage
