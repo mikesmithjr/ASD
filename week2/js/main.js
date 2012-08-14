@@ -53,7 +53,7 @@ $("#dataTypes").on('pageinit', function(){
 		    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
 				    
 				 	});
-				
+				$("#logitemList").listview('refresh');
 		   		
 		    },
 		    error: function(){
@@ -110,7 +110,7 @@ $("#dataTypes").on('pageinit', function(){
 		    			
 
 					});
-					
+					$("#logitemList").listview('refresh');
 				},
 				error: function(){
 					alert("XML Ajax Error");
@@ -164,6 +164,7 @@ $("#dataTypes").on('pageinit', function(){
 			    			//Adding edit and delete links to the list
 			    			makeli.append(editLink, deleteLink).appendTo("#logitemList");
 						});
+						$("#logitemList").listview('refresh');
 					});
 					
 
