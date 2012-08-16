@@ -101,7 +101,7 @@ $("#home").on('pageinit', function(){
 		        	
 		            /// do stuff
 				    var makeli = $("<li id='listItem"+i+"'></li>");
-				    var optSubText = $( "<img src='images/"+logItem.value.treatments[1]+".jpg'/>"+
+				    var optSubText = $( "<img src='"+logItem.value.treatments[1]+".jpg'/>"+
 		    				"<h3>"+logItem.value.date[1]+"</h3>"+
 		    				"<h3>"+logItem.value.currentTime[1]+"</h3>"+
 		    				"<p>"+logItem.value.fname[0]+" "+logItem.value.fname[1]+"</p>"+
@@ -162,7 +162,7 @@ $("#dataTypes").on('pageinit', function(){
 					    var makeli = $("<li id='listItem"+item+"'></li>");
 		    					    			
 		    			//create log item list
-		    			var optSubText = $( "<img src='images/"+item.find("treatments").text()+".jpg'/>"+
+		    			var optSubText = $( "<img src='"+item.find("treatments").text()+".jpg'/>"+
 		    				"<h3>"+item.find("date").text()+"</h3>"+
 		    				"<h3>"+item.find("currentTime").text()+"</h3>"+
 		    				"<p>"+"First Name:"+" "+item.find("fname").text()+"</p>"+
@@ -218,7 +218,7 @@ $("#dataTypes").on('pageinit', function(){
 			        	
 			            /// do stuff
 					    var makeli = $("<li id='listItem"+i+"'></li>");
-					    var optSubText = $( "<img src='images/"+logItem.treatments+".jpg'/>"+
+					    var optSubText = $( "<img src='"+logItem.treatments+".jpg'/>"+
 			    				"<h3>"+logItem.date+"</h3>"+
 			    				"<h3>"+logItem.currentTime+"</h3>"+
 			    				"<p>"+"First Name: "+" "+logItem.fname+"</p>"+
@@ -286,7 +286,7 @@ $("#addLogForm").on('pageinit', function(){
     			var obj = JSON.parse(localStorage.getItem(key));
 
     			//create log item list
-    			var optSubText = $( "<img src='images/"+obj.treatments[1]+".jpg'/>"+
+    			var optSubText = $( "<img src='"+obj.treatments[1]+".jpg'/>"+
     				"<h3>"+obj.date[1]+"</h3>"+
     				"<h3>"+obj.currentTime[1]+"</h3>"+
     				"<p>"+obj.fname[0]+" "+obj.fname[1]+"</p>"+
