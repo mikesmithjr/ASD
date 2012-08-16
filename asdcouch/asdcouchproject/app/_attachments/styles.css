@@ -11,14 +11,14 @@ The Diabetic's Log
 
 /*body{
 	
-	background-image: url(images/narowstripe.gif);
+	background-image: url(narowstripe.gif);
 	visibility: visible;
 	width: 100%;
 	height: 100%;
 }
 .ui-body{
 
-	background-image: url(images/narowstripe.gif);
+	background-image: url(narowstripe.gif);
 	visibility: visible;
 	width: 100%;
 	height: 100%;
@@ -27,7 +27,7 @@ The Diabetic's Log
 }*/
 
 .ui-page {
-    background: url("images/texture.png");
+    background: url("texture.png");
     background-repeat: repeat;
 }
 
