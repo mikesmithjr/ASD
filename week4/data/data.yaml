@@ -1,0 +1,77 @@
+
+logItem0:
+    fname: Nancy
+    lname: Soto
+    date: 05/24/2012
+    currentTime: 18:00
+    bsreading: 145
+    sex: Female
+    condition: 10
+    treatments: Pills
+    comments: Feeling Awesome!!
+
+logItem1:
+    fname: Nancy
+    lname: Soto
+    date: 05/25/2012
+    currentTime: 08:00
+    bsreading: 130
+    sex: Female
+    condition: 7
+    treatments: Pills
+    comments: Feeling Great Today!!
+
+logItem2:
+    fname: Nancy
+    lname: Soto
+    date: 05/26/2012
+    currentTime: 12:00
+    bsreading: 60
+    sex: Female
+    condition: 4
+    treatments: Insulin
+    comments: Not feeling well.
+
+logItem3:
+    fname: Nancy
+    lname: Soto
+    date: 05/27/2012
+    currentTime: 16:00
+    bsreading: 125
+    sex: Female
+    condition: 5
+    treatments: Pills
+    comments: Feeling OK.
+
+logItem4:
+    fname: Nancy
+    lname: Soto
+    date: 05/28/2012
+    currentTime: 19:00
+    bsreading: 110
+    sex: Female
+    condition: 8
+    treatments: Insulin
+    comments: Feeling Great!!
+
+logItem5:
+    fname: Nancy
+    lname: Soto
+    date: 05/29/2012
+    currentTime: 18:00
+    bsreading: 100
+    sex: Female
+    condition: 10
+    treatments: Pills
+    comments: Feeling Awesome!!
+
+logItem6:
+    fname: Nancy
+    lname: Soto
+    date: 05/29/2012
+    currentTime: 18:00
+    bsreading: 100
+    sex: Female
+    condition: 10
+    treatments: Pills
+    comments: Feeling Awesome!!
