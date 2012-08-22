@@ -15,6 +15,7 @@ var getData = function(){
 	        	
 	            /// do stuff
 	        	var id = logItem.value._id;
+	        	var rev = logItem.value._rev;
 			    var makeli = $("<li id='listItem"+i+"'></li>");
 			    var optSubText = $( "<img src='"+logItem.value.treatments[1]+".jpg'/>"+
 	    				"<h3>"+logItem.value.date[1]+"</h3>"+
