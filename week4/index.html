@@ -64,7 +64,7 @@
 				<br>
 				<div>
 					<ul data-role="listview" data-inset="true" data-filter="true" data-theme="b">
-						<li><a href="#list" id="jsonBtn">CouchDB JSON Data</a></li>
+						
 						<li><a href="#list" id="news" >Recent Test Results</a></li>
 						<li><a href="#useful">Useful Links</a></li>
 						<li><a href="#contact">Medical Contact Info</a></li>
@@ -82,103 +82,8 @@
 			</div>		
 		</div>
 	</div>
-	<!--Page with buttons for 3 data types-->
-	<div data-role="page" id="dataTypes">
-			<div data-role="header" data-position="fixed">
-				<h1>The Diabetic's Log</h1>
-			</div>
-			
-			<div data-role="content">
-
-				<div class= "logo">
-					<a href='index.html' title="Home"><img src= "miniLogo.jpg"></a>
-
-					
-				
-				<div>
-					<ul data-role="listview" data-inset="false" data-theme="b">
-						<li><a href="#list" id="jsonBtn">JSON Data</a></li>
-						<li><a href="#list" id="xmlBtn">XML Data</a></li>
-						<li><a href="#list" id="yamlBtn">YAML Data</a></li>
-					</ul>
-				</div>
-				
-			</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" class="ui-btn-active" data-icon="home">Home</a></li>
-					<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
-					<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">Gold App</a></li>
-				</ul>
-			</div>		
-		</div>
-	</div>
-</div>
-	<!--Recent Readings News Feed Page-->
-	<div data-role="page" id="recentreadings" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed">
-				<h1>Recent Test Results</h1>
-			</div>
-			
-				
-				<div data-role="content">
-				
-					<div class= "logo">
-						<a href='index.html' title="Home"><img src= "tinyLogo.jpg"></a>
-					</div>
-					<br>
-					<div>
-						<ul data-role="listview" data-inset="false" data-filter="true" data-theme="d">
-							<li>
-								<img src="Insulin.jpg">
-								<h3>Date: 05/12/2012</h3>
-								<p>Time: 08:00</p>
-								<p>Blood Sugar Reading: 125</p>
-								<p>Treatment: Insulin</p>
-							</li>
-							<li>
-								<img src="Pills.jpg">
-								<h3>Date: 05/11/2012</h3>
-								<p>Time: 18:00</p>
-								<p>Blood Sugar Reading: 100</p>
-								<p>Treatment: Insulin</p>
-							</li>
-							<li>
-								<img src="Insulin.jpg">
-								<h3>Date: 05/11/2012</h3>
-								<p>Time: 11:00</p>
-								<p>Blood Sugar Reading: 115</p>
-								<p>Treatment: Insulin</p>
-							</li>
-							<li>
-								<img src="Pills.jpg">
-								<h3>Date: 05/11/2012</h3>
-								<p>Time: 08:00</p>
-								<p>Blood Sugar Reading: 95</p>
-								<p>Treatment: Insulin</p>
-							</li>
-							<li>
-								<img src="Insulin.jpg">
-								<h3>Date: 05/10/2012</h3>
-								<p>Time: 18:00</p>
-								<p>Blood Sugar Reading: 115</p>
-								<p>Treatment: Insulin</p>
-							</li>
-						</ul>
-					</div>
-				</div>
-			
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>
-					<li><a href="http://mikesmithjr.github.com/MIU/week4/bronzeapp/index.html" data-icon="info">Bronze App</a></li>
-					<li><a href="http://mikesmithjr.github.com/MIU/week4/goldapp/index.html" data-icon="grid">GH-Pages Gold App</a></li>
-				</ul>
-			</div>		
-		</div>
-	</div>
+	
+	
 	<!--Useful Links Page-->
 	<div data-role="page" id="useful" data-add-back-btn="true">
 			<div data-role="header" data-position="fixed">
@@ -521,10 +426,9 @@
 		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
 		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
 		<script type="text/javascript" src="jquery.validate.min.js"></script>
-		<script type="text/javascript" src="yaml.js"></script>
-		<script type="text/javascript" src="json.js"></script>
+		<script type="text/javascript" src="jquery.couch.js"></script>
 		<script type="text/javascript" src="main.js"></script>
-		<!--<script type="text/javascript" src="form.js"></script>-->
+		
 
 	</body>
 </html>
