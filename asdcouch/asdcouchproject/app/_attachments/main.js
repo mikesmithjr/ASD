@@ -9,13 +9,16 @@ var getData = function(){
 	$.couch.db("asdproject").view("diabeticlog/logitems", {
 	    success: function(json) {
 	        console.log(json);
+	        
+	        
 	        $.each(json.rows, function(i, logItem){
-	        	console.log(i + " " + logItem.value.fname[0] + " " + logItem.value.fname[1]);
-	        	
+	        	//console.log(i + " " + logItem.value.fname[0] + " " + logItem.value.fname[1]);
+	        	localStorage.setItem(i, JSON.stringify(logItem));
 	        	
 	            /// do stuff
 	        	var id = logItem.value._id;
 	        	var rev = logItem.value._rev;
+	        	var doc = {_id: id, _rev: rev};
 			    var makeli = $("<li id='listItem"+i+"'></li>");
 			    var optSubText = $( "<img src='"+logItem.value.treatments[1]+".jpg'/>"+
 	    				"<h3>"+logItem.value.date[1]+"</h3>"+
@@ -30,13 +33,53 @@ var getData = function(){
 	    			//Creating Edit Link in Item
 	    			var editLink = $("<a href='#addLogForm' id='edit"+i+"'> Edit Log Item</a>");
 	    				editLink.on('click', function(){
-	    					editItem(this.id);
-
+	    					$.couch.db("asdproject").openDoc(id, {
+	    					    success: function(data) {
+	    					        console.log(data);
+	    					   
+			    					$("#fname").val(logItem.value.fname[1]);
+			    					$("#lname").val(logItem.value.lname[1]);
+			    					$("#date").val(logItem.value.date[1]);
+			    					$("#currentTime").val(logItem.value.currentTime[1]);
+			    					$("#bsreading").val(logItem.value.bsreading[1]);
+			    					$('input#' + logItem.value.sex[1].toLowerCase()).attr('checked', true).checkboxradio('refresh');
+			    					$("#condition").val(logItem.value.condition[1]);
+			    					$("#treatments").val(logItem.value.treatments[1]).selectmenu("refresh");
+			    					$("#comments").val(logItem.value.comments[1]);
+			    					//Change submit button value to edit button
+			    					$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
+			    					
+			    					//Save the key value established in this function as a property of #addLogItem
+			    					$("#submit").attr("key", id);
+			    					
+	    					    },
+	    					    error: function(status) {
+	    					        console.log(status);
+	    					    }
+	    					});
 	    				});
 	    			//Creating Delete Link in Item
 	    			var deleteLink = $("<a href='#list' id='delete"+i+"'>Delete Item</a>");
 	    				deleteLink.on('click', function(){
-	    					deleteItem(this.id);
+	    					var ask = confirm("Are you sure you want to delete this log entry?");
+	    					
+	    					console.log(id, rev);
+	    					if(ask){
+	    						$.couch.db("asdproject").removeDoc(doc, {
+	    						     success: function(data) {
+	    						         console.log(data);
+	    						         
+	    						    },
+	    						    error: function(status) {
+	    						        console.log(status);
+	    						    }
+	    						   
+	    						});
+	    						alert("Log Entry was deleted.");
+	    						$("#logitemList").listview('refresh');
+	    					}else{
+	    						alert("Log entry was Not deleted.");
+	    					};
 	    				});
 	    			//Make item data the edit link
 	    			editLink.html(optSubText);
@@ -53,29 +96,7 @@ var getData = function(){
 	});
 	
 };
-var storeData = function(key){
-	var logItem = {};	
-	 logItem.fname = ["First Name:", $("#fname").val()];
-	 logItem.lname = ["Last Name:", $("#lname").val()];
-	 logItem.date = ["Today's Date:", $("#date").val()];
-	 logItem.currentTime = ["Current Time:", $("#currentTime").val()];
-	 logItem.bsreading = ["Blood Sugar Reading:", $("#bsreading").val()];
-	 logItem.sex = ["Male or Female:", $('input[name="sex"]:checked', '#addLogItem').val()];
-	 logItem.condition = ["Condition:", $("#condition").val()];
-	 logItem.treatments = ["Current Treatment:", $("#treatments").val()];
-	 logItem.comments = ["Comments:", $("#comments").val()];
-	$.couch.db("asdproject").saveDoc(logItem, {
-	    success: function(data) {
-	        console.log(data);
-	        alert("Log Saved!");
-	    },
-	    error: function(status) {
-	        console.log(status);
-	    }
-	});	
-	
-	
-	};
+
 
 //edit single item
 	
@@ -102,13 +123,14 @@ var storeData = function(key){
 		    }
 		});*/
 	
-	var editItem =function(id) {
+	/*var editItem =function(doc) {
 		
 		
 		
-		/*//grab the data from our item in local storage
-		var key = parseInt(id.match(/\d+/g));
-		var logItem = JSON.parse(localStorage.getItem(key));*/
+		//grab the data from our item in local storage
+		//var key = parseInt(id.match(/\d+/g));
+		var logItem = JSON.parse(localStorage.getItem(doc));
+		console.log(logItem);
 		//Populate the form with current local storage values.
 		$("#fname").val(logItem.value.fname[1]);
 		$("#lname").val(logItem.value.lname[1]);
@@ -120,44 +142,18 @@ var storeData = function(key){
 		$("#treatments").val(logItem.value.treatments[1]).selectmenu("refresh");
 		$("#comments").val(logItem.value.comments[1]);
 		//Change submit button value to edit button
-		$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
+		$("#addLogForm div form#addLogItem div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b 
+		span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save Log Edit");
 		//Save the key value established in this function as a property of #addLogItem
 		$("#submit").attr("key", key);
 		
 		
 		
 
-	};
-//delete single list item
+	};*/
+
 	
-	/*
-	   
-	   
-	   var doc = {
-		    _id: "d12ee5ea1df6baa2b06451f44a019ab9",
-		    _rev: "2-13839535feb250d3d8290998b8af17c3"
-		};
-		$.couch.db("mydb").removeDoc(doc, {
-		     success: function(data) {
-		         console.log(data);
-		    },
-		    error: function(status) {
-		        console.log(status);
-		    }
-		});*/
 	
-	var deleteItem = function(){
-				var ask = confirm("Are you sure you want to delete this log entry?");
-				var key = localStorage.key(i);
-				if(ask){
-					localStorage.removeItem(key);
-					alert("Log Entry was deleted.");
-					$("#logitemList").listview('refresh');
-				}else{
-					alert("Log entry was Not deleted.");
-				};
-		
-	};
 //clear local storage
 	var clearData = function() {
 		if(localStorage.length === 0){
@@ -176,7 +172,7 @@ var storeData = function(key){
 
 $("#home").on('pageinit', function(){
 	console.log("I'm Ready!");
-	$("#jsonBtn").on("click", getData);
+	$("#news").on("click", getData);
 });
 
 
@@ -190,15 +186,44 @@ $("#addLogForm").on('pageinit', function(){
 		invalidHandler: function(form, validator){},
 		submitHandler: function(){
 			/*localStorage.setItem('formdata', this.serializeArray());*/
-			storeData(this.id);
+			storeData(key);
 		}
 	});
 
-	
+	var storeData = function(key){
+		if(!key){
+			var id = "logitem" + Math.floor(Math.random()*10001);
+			}else{
+				//Set the id to the existing key we're editing so that it will save over the data.
+				//The key is the same key that's been passed along from the editSubmit event handler
+				//to the validate function, and then passed here.
+				id = key;
+			}
+		var logItem = {};
+		console.log(key);
+		 logItem._id = id;
+		 logItem.fname = ["First Name:", $("#fname").val()];
+		 logItem.lname = ["Last Name:", $("#lname").val()];
+		 logItem.date = ["Today's Date:", $("#date").val()];
+		 logItem.currentTime = ["Current Time:", $("#currentTime").val()];
+		 logItem.bsreading = ["Blood Sugar Reading:", $("#bsreading").val()];
+		 logItem.sex = ["Male or Female:", $('input[name="sex"]:checked', '#addLogItem').val()];
+		 logItem.condition = ["Condition:", $("#condition").val()];
+		 logItem.treatments = ["Current Treatment:", $("#treatments").val()];
+		 logItem.comments = ["Comments:", $("#comments").val()];
+		$.couch.db("asdproject").saveDoc(logItem, {
+		    success: function(data) {
+		        console.log(data);
+		        alert("Log Saved!");
+		    },
+		    error: function(status) {
+		        console.log(status);
+		    }
+		});	
+		
+		
+		};
 
-    	
-    			
-	    			
     
 	    
 	$("#submit").on("click", storeData);
@@ -231,7 +256,7 @@ $("#list").on('pageinit', function(){
 			};
 		};
 	};
-	/*$("#displayLog, #news").on("click", getData);*/
+	
 	$("#clear").on("click", clearData);
 });
 
